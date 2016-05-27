@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="app" ng-controller="AppController as global">
   <head>
     <meta charset="utf-8">
     <title>App</title>
@@ -20,7 +20,16 @@
     <!-- endbuild -->
   </head>
   <body state-classnames id="app">
-    <div class="l-main-content" ui-view autoscroll></div>
+    <topbar ng-if="global.displayTopbar"></topbar>
+
+    <div class="l-main-content" ui-view autoscroll>
+    </div>
+
+    <div class="l-footer">
+      // My App //
+    </div>
+
+    <div growl></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

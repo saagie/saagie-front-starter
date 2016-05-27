@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -9,31 +9,31 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('styleguide', {
-        url: '/styleguide',
-        templateUrl: 'app/styleguide/styleguide.html',
-        controller: 'StyleguideController',
-        controllerAs: 'vm',
-        data : {
-          classnames : 'as--styleguide'
+        url:               '/styleguide',
+        templateUrl:       'app/styleguide/styleguide.html',
+        controller:        'StyleguideController',
+        controllerAs:      'vm',
+        data:              {
+          classnames: 'as--styleguide'
         },
         deepStateRedirect: {
           default: {
-            state: 'styleguide.page',
+            state:  'styleguide.page',
             params: {
               folder: 'objects',
-              file: 'buttons'
+              file:   'buttons'
             }
           },
-          params: true
+          params:  true
         }
       })
 
       .state('styleguide.page', {
-        url: '/:folder/:file',
-        templateUrl: function (stateParams){
+        url:          '/:folder/:file',
+        templateUrl:  function (stateParams) {
           return 'app/styleguide/pages/' + stateParams.folder + '/' + stateParams.file + '.html';
         },
-        controller: 'StyleguidePageController',
+        controller:   'StyleguidePageController',
         controllerAs: 'vm'
       });
 

@@ -1,13 +1,14 @@
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('app', [
-      'ngAnimate',
       'ngCookies',
       'ngSanitize',
       'ngResource',
       'ui.router',
+      'ui.validate',
+      'angular-growl',
       'ui.saagie',
       'styleguide'
     ]);

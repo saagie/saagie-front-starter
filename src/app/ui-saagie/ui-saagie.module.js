@@ -1,7 +1,7 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('ui.saagie', []);
+  angular
+    .module('ui.saagie', []);
 
 })();

@@ -37,7 +37,7 @@
        * @param {values} array - An array of array like ['oldValue', 'newValue']
        * @returns {string} Modified string
        */
-      function replace (string, values) {
+      function replace(string, values) {
         angular.forEach(values, function (value, key) {
           var regex = new RegExp(key, 'g');
           string = string.replace(regex, value);

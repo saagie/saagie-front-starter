@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -8,7 +8,7 @@
   /** @ngInject */
   function MainController() {
     // var vm = this;
-    
+
     activate();
 
     function activate() {

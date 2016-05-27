@@ -12,15 +12,15 @@
     vm.menu = [
       {
         title: 'Objects',
-        slug: 'objects',
+        slug:  'objects',
         pages: [
           {
             title: 'Buttons',
-            slug: 'buttons'
+            slug:  'buttons'
           },
           {
             title: 'Alerts',
-            slug: 'alerts'
+            slug:  'alerts'
           }
         ]
       }

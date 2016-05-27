@@ -1,5 +1,5 @@
 /* global Drop:false */
-(function() {
+(function () {
   'use strict';
 
   angular

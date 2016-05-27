@@ -11,13 +11,14 @@
           </span>
         </li>
         <li ng-repeat="page in folder.pages">
-          <a ui-sref="styleguide.page({ folder: folder.slug, 'file': page.slug })" ui-sref-active="as--active">{{ page.title }}</a>
+          <a ui-sref="styleguide.page({ folder: folder.slug, 'file': page.slug })" ui-sref-active="as--active">{{
+            page.title }}</a>
         </li>
       </ul>
     </div>
   </div>
 
   <div class="sg-main">
-      <div ui-view></div>
+    <div ui-view></div>
   </div>
 </div>
