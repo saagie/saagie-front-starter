@@ -1,0 +1,23 @@
+<div class="sg-container">
+  <div class="sg-navbar">
+    <a ui-sref="styleguide" class="sg-navbar__logo">
+      Styleguide
+    </a>
+    <div class="sg-navbar__nav">
+      <ul ng-repeat="folder in vm.menu">
+        <li>
+          <span>
+            {{ folder.title }}
+          </span>
+        </li>
+        <li ng-repeat="page in folder.pages">
+          <a ui-sref="styleguide.page({ folder: folder.slug, 'file': page.slug })" ui-sref-active="as--active">{{ page.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sg-main">
+      <div ui-view></div>
+  </div>
+</div>

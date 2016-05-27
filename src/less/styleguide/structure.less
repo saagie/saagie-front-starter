@@ -1,0 +1,44 @@
+@sg-navbar-with: 200px;
+
+body.as--styleguide .l-main-content {
+  padding-top: 0;
+}
+
+.sg-container {
+    flex-grow: 1;
+    background: @color-bg-content;
+}
+
+.sg-main {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 80px 20px 300px 20px;
+
+  &__intro {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: -80px;
+  }
+
+  &__intro-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 45px;
+  }
+}
+
+@sg-navbar-with: 200px;
+
+@media only screen and (min-width: @mq-md) {
+  .sg-navbar {
+    position: fixed;
+    overflow: auto;
+    width: @sg-navbar-with;
+    height: 100%;
+  }
+
+  .sg-main {
+    max-width: 1200px + @sg-navbar-with;
+    padding-left: 20px + @sg-navbar-with;
+  }
+}

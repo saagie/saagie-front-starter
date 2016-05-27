@@ -21,8 +21,9 @@
   .o-alert-variant(#eee; #ccc; #333);
 
   &.as--colorful {
-    background: @color-soft;
-    color: #333;
+    background: darken(@color-soft, 40%);
+    border-color: darken(@color-soft, 50%);
+    color: #fff;
   }
 
   &.as--with-icon {
@@ -64,7 +65,7 @@
             @color-success
     );
   }
-  
+
   &.as--info {
     .o-alert-variant(
             lighten(spin(@color-info, -10), 40%);
@@ -72,7 +73,7 @@
             @color-info
     );
   }
-  
+
   &.as--warning {
     .o-alert-variant(
             lighten(spin(@color-warning, -10), 40%);
@@ -80,7 +81,7 @@
             @color-warning
     );
   }
-  
+
   &.as--danger {
     .o-alert-variant(
             lighten(spin(@color-danger, -10), 35%);

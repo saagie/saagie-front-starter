@@ -8,7 +8,8 @@
       'ngSanitize',
       'ngResource',
       'ui.router',
-      'toastr'
+      'ui.saagie',
+      'styleguide'
     ]);
 
 })();
