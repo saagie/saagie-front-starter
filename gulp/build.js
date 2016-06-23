@@ -4,6 +4,7 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 
+
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'del']
 });
@@ -36,26 +37,26 @@ gulp.task('html', ['inject', 'partials'], function () {
 
   var htmlFilter = $.filter('*.html', { restore: true });
   var jsFilter = $.filter('**/*.js', { restore: true });
+  var jsAppFilter = $.filter('**/app.js', {restore: true});
   var cssFilter = $.filter('**/*.css', { restore: true });
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
-    //.pipe($.sourcemaps.init())
+    .pipe(jsAppFilter)
+    .pipe($.babel())
+    .pipe(jsAppFilter.restore)
     .pipe($.ngAnnotate())
     .pipe($.uglify()).on('error', conf.errorHandler('Uglify'))
     .pipe($.rev())
-    //.pipe($.sourcemaps.write('maps'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
-    // .pipe($.sourcemaps.init())
     .pipe($.cssnano({
       safe: true
     }))
     .pipe($.replace('../../bower_components/font-awesome/fonts', '../fonts'))
     .pipe($.rev())
-    // .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
     .pipe($.revReplace())
     .pipe(htmlFilter)
