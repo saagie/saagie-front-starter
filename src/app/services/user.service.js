@@ -4,9 +4,7 @@
   angular
     .module('app')
     .service('UserService', UserService);
-
-  UserService.$inject = ['$rootScope', '$cookies'];
-
+  
   /* @ngInject */
   function UserService($rootScope, $cookies) {
     var service = this;

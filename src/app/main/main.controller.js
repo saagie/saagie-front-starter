@@ -5,7 +5,7 @@
     .module('app')
     .controller('MainController', MainController);
 
-  /** @ngInject */
+  /* @ngInject */
   function MainController() {
     // var vm = this;
 

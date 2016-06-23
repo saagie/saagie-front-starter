@@ -26,8 +26,6 @@
     }
   }
 
-  TopbarController.$inject = ['$rootScope', 'UserService'];
-
   /* @ngInject */
   function TopbarController($rootScope, UserService) {
     var vm = this;

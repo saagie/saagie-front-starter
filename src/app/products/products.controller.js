@@ -5,8 +5,6 @@
     .module('app')
     .controller('ProductsController', ProductsController);
 
-  ProductsController.$inject = ['$log', 'ProductsService'];
-
   /* @ngInject */
   function ProductsController($log, ProductsService) {
     //var vm = this;

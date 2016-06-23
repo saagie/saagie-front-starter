@@ -5,7 +5,7 @@
     .module('app')
     .factory('AuthenticationService', AuthenticationService);
 
-  AuthenticationService.$inject = ['$http', '$q', '$log', '$cookies', '$rootScope'];
+  /* @ngInject */
   function AuthenticationService($http, $q, $log, $cookies, $rootScope) {
     var service = {};
 

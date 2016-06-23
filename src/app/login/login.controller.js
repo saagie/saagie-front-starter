@@ -5,8 +5,6 @@
     .module('app')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$location', 'AuthenticationService'];
-
   /* @ngInject */
   function LoginController($location, AuthenticationService) {
     var vm = this;

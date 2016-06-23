@@ -5,8 +5,6 @@
     .module('app')
     .service('ProductsService', ProductsService);
 
-  ProductsService.$inject = ['$http', '$q'];
-
   /* @ngInject */
   function ProductsService($http, $q) {
     var service = this;
