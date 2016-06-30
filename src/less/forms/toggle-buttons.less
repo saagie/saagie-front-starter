@@ -1,74 +1,92 @@
-//From @mallendeo
-@color-toggle-on: #9FD6AE;
-@color-toggle-off: #f0f0f0;
-@color-toggle-button: #fff;
+@color-f-toggle-on: @color-success;
+@color-f-toggle-off: #eee;
+@color-f-toggle-button: #fff;
 
 .f-toggle-button {
-  & > span {
-    vertical-align: middle;
-    padding-left: 10px;
+  position: relative;
+  cursor: pointer !important;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
   }
-  &-label{
+
+  &__input {
+    cursor: pointer !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0 !important;
     outline: 0;
-    vertical-align: middle;
-    width: 64px;
-    max-width: 64px;
-    height: 32px;
+    margin: 0;
+    width: 3.5em;
+    height: 1.5em;
+    z-index: -1;
+  }
+
+  &__label {
+    display: block;
     position: relative;
-    cursor: pointer;
+    cursor: pointer !important;
     user-select: none;
-    padding-right: 5px;
-    &:after,
+    min-height: 1.5em;
+    padding-top: .2em;
+    padding-left: 4.2em;
+    font-weight: normal;
+    line-height: 1.2;
+  }
+
+  &__indicator {
+    display: block;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    transform: none;
+    border: none;
+    top: 0;
+    left: 0;
+    background: @color-f-toggle-off;
+    width: 3.5em;
+    height: 1.5em;
+    border-radius: 500em;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, .2);
+    transition: background .2s;
+  }
+
+  &__indicator:before {
+    display: block;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    transform: none;
+    border: none;
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+    width: 50%;
+    background: @color-f-toggle-button;
+    border-radius: 500em;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+    transition: left .2s;
+  }
+
+  &__text {
+    opacity: .5;
+    transition: opacity .2s;
+  }
+
+
+  // Checked
+  // -------------------------
+  &__input:checked + &__label &__indicator {
+    background: @color-f-toggle-on;
+
     &:before {
-      position: relative;
-      display: block;
-      content: "";
-      width: 50%;
-      height: 100%;
-    }
-    &:after {
-      left: 0;
-    }
-    &:before {
-      display: none;
+      left: 50%;
+      margin-left: -3px;
     }
   }
 
-  &-btn{
-    display: none;
-
-    // add default box-sizing for this scope
-    &,
-    &:after,
-    &:before,
-    & *,
-    & *:after,
-    & *:before,
-    & + .f-toggle-button-label {
-      box-sizing: border-box;
-      &::selection {
-        background: none;
-      }
-    }
-    &:checked + .f-toggle-button-label:after {
-      left: 50%;
-    }
-    &.as--theme-light {
-      + .f-toggle-button-label {
-        background: @color-toggle-off;
-        border-radius: 2em;
-        padding: 2px;
-        transition: all .4s ease;
-        &:after {
-          border-radius: 50%;
-          background: @color-toggle-button;
-          transition: all .2s ease;
-        }
-      }
-      &:checked + .f-toggle-button-label {
-        background: @color-toggle-on;
-      }
-    }
+  &__input:checked + &__label &__text {
+    opacity: 1;
   }
 }
-

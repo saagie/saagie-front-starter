@@ -22,16 +22,33 @@
     };
     return directive;
 
-    function link(scope, element, attrs) {
-      let input = angular.element(element).find('input');
-      input.addClass("f-toggle-button-btn as--theme-light");
+    function link(scope, element) {
+      let input = angular.element(element).find('input'),
+        userLabel = angular.element(element).find('label:not(.f-toggle-button__label)'),
+        label = angular.element(element).find('.f-toggle-button__label'),
+        text = angular.element(element).find('.f-toggle-button__text');
 
+      // Add custom class to input
+      // -------------------------
+      input.addClass("f-toggle-button__input");
+
+      // If no id on input, add one
+      // -------------------------
       if(!input.attr('id')) {
-        input.attr('id', 'checkbox-' + new Date().getTime())
+        input.attr('id', 'f-toggle-button-' + new Date().getTime())
       }
 
-      let label = angular.element(element).find('label');
+      // Put user label into text span and remove user label
+      // -------------------------
+      text.html(userLabel.html());
+      userLabel.remove();
+
+      // Add attribute for on label to match input id
+      // -------------------------
       label.attr('for', input.attr('id'));
+
+      // Append label into ng-transclude
+      // -------------------------
       label.appendTo(angular.element(element).find('ng-transclude'));
     }
   }
