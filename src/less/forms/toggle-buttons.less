@@ -1,0 +1,74 @@
+//From @mallendeo
+@color-toggle-on: #9FD6AE;
+@color-toggle-off: #f0f0f0;
+@color-toggle-button: #fff;
+
+.f-toggle-button {
+  & > span {
+    vertical-align: middle;
+    padding-left: 10px;
+  }
+  &-label{
+    outline: 0;
+    vertical-align: middle;
+    width: 64px;
+    max-width: 64px;
+    height: 32px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-right: 5px;
+    &:after,
+    &:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+    }
+    &:after {
+      left: 0;
+    }
+    &:before {
+      display: none;
+    }
+  }
+
+  &-btn{
+    display: none;
+
+    // add default box-sizing for this scope
+    &,
+    &:after,
+    &:before,
+    & *,
+    & *:after,
+    & *:before,
+    & + .f-toggle-button-label {
+      box-sizing: border-box;
+      &::selection {
+        background: none;
+      }
+    }
+    &:checked + .f-toggle-button-label:after {
+      left: 50%;
+    }
+    &.as--theme-light {
+      + .f-toggle-button-label {
+        background: @color-toggle-off;
+        border-radius: 2em;
+        padding: 2px;
+        transition: all .4s ease;
+        &:after {
+          border-radius: 50%;
+          background: @color-toggle-button;
+          transition: all .2s ease;
+        }
+      }
+      &:checked + .f-toggle-button-label {
+        background: @color-toggle-on;
+      }
+    }
+  }
+}
+
