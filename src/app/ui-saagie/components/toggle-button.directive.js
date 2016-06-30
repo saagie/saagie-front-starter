@@ -24,32 +24,30 @@
 
     function link(scope, element) {
       let input = angular.element(element).find('input'),
-        userLabel = angular.element(element).find('label:not(.f-toggle-button__label)'),
-        label = angular.element(element).find('.f-toggle-button__label'),
-        text = angular.element(element).find('.f-toggle-button__text');
+        label = angular.element(element).find('label');
 
       // Add custom class to input
       // -------------------------
       input.addClass("f-toggle-button__input");
+      label.addClass("f-toggle-button__label");
+
+      // Wrap label text into custom span
+      // -------------------------
+      label.wrapInner('<span class="f-toggle-button__text"></span>');
+
+      // Add indicator into label
+      // -------------------------
+      label.append('<span class="f-toggle-button__indicator"></span>');
 
       // If no id on input, add one
       // -------------------------
       if(!input.attr('id')) {
-        input.attr('id', 'f-toggle-button-' + new Date().getTime())
+        input.attr('id', 'f-toggle-button-' + new Date().getTime());
       }
-
-      // Put user label into text span and remove user label
-      // -------------------------
-      text.html(userLabel.html());
-      userLabel.remove();
 
       // Add attribute for on label to match input id
       // -------------------------
       label.attr('for', input.attr('id'));
-
-      // Append label into ng-transclude
-      // -------------------------
-      label.appendTo(angular.element(element).find('ng-transclude'));
     }
   }
 
