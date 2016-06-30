@@ -75,7 +75,6 @@ gulp.task('html', ['inject', 'partials'], function () {
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function () {
   var files = $.mainBowerFiles();
-  files.push('src/assets/fonts/**/*');
 
   return gulp.src(files)
     .pipe($.filter('**/*.{eot,otf,svg,ttf,woff,woff2}'))
